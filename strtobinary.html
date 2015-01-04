@@ -1,7 +1,23 @@
 <!doctype html>
 <html>
 <head>
-    <script src="strtobinary.js"></script>
+    <script>
+        function numToBinary(num) {
+            return (num == 0)
+                ? ""
+                : numToBinary(~~(num/2)) + "" + (num % 2);
+        }
+
+        function strToBinary(str) {
+            var binary = "";
+            for (var i = 0; i < str.length; i++) {
+                var num = str.charCodeAt(i);
+                if (i > 0) binary += " ";
+                binary += numToBinary(num);
+            }
+            document.querySelector("#result").innerHTML = binary;
+        }
+    </script>
 </head>
 <body>
     <p>Start typing below and it will be translated into binary.</p>
